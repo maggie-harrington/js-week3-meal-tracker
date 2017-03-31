@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Food } from './food.model';
 
 @Component({
   selector: 'app-root',
@@ -35,7 +36,7 @@ import { Component } from '@angular/core';
       <input type="number" name="new-food-calories" #newCalories><br><br>
 
       <button (click)="submitNewFoodForm(newName.value, newDetails.value, newCalories.value); newName.value=''; newDetails.value=''; newCalories.value=''">Enter</button>
-    </div>
+    </div><br>
 
     <div *ngIf="selectedFood">
       <h3>Edit food entry: {{selectedFood.name}}</h3><br>

@@ -23,7 +23,15 @@ Create a meal tracking application. Users should be able to log foods they've ea
 
 * Add functionality for user to choose to display all, high calorie, or low calorie foods using a pipe
 
-* Clean up code/ refactor
+* Refactor using food model
+
+* Refactor using new-food child component
+
+* Refactor using edit-food child component
+
+* Refactor using food-list child component
+
+* Clean up code
 
 * Styling with SASS (if time allows)
 

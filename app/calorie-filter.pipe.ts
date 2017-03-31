@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Food } from './app.component';
+import { Food } from './food.model';
 
 @Pipe({
   name: "calorieFilterPipe",
