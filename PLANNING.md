@@ -19,7 +19,7 @@ Create a meal tracking application. Users should be able to log foods they've ea
 
 * Add form/functionality to allow user to edit existing data when clicked using ngIf
 
-* Add form/functionality to allow user to add new data
+* Add form/functionality to allow user to add new data using template reference variables
 
 * Add functionality for user to choose to display all, high calorie, or low calorie foods
 
