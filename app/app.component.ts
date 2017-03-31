@@ -23,20 +23,7 @@ import { Food } from './food.model';
       <p>{{food.calories}} calories</p><br>
     </div>
 
-    <div>
-      <h3>Enter new food:</h3><br>
-
-      <label for="new-food-name">Enter food name:</label><br>
-      <input type="text" name="new-food-name" #newName><br><br>
-
-      <label for="new-food-details">Enter details:</label><br>
-      <textarea type="text" name="new-food-details" #newDetails></textarea><br><br>
-
-      <label for="new-food-calories">Enter calories (number only):</label><br>
-      <input type="number" name="new-food-calories" #newCalories><br><br>
-
-      <button (click)="submitNewFoodForm(newName.value, newDetails.value, newCalories.value); newName.value=''; newDetails.value=''; newCalories.value=''">Enter</button>
-    </div><br>
+    <new-food (newFoodSender)="addFood($event)"></new-food>
 
     <div *ngIf="selectedFood">
       <h3>Edit food entry: {{selectedFood.name}}</h3><br>
@@ -70,9 +57,8 @@ export class AppComponent {
     this.calorieFilter = optionFromMenu;
   }
 
-  submitNewFoodForm(name: string, details: string, calories: number) {
-    var newFoodToAdd: Food = new Food(name, details, calories);
-    this.foods.push(newFoodToAdd);
+  addFood(newFoodFromChild: Food) {
+    this.foods.push(newFoodFromChild);
   }
 
   selectedFood = null;
