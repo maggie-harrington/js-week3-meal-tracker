@@ -17,7 +17,7 @@ Create a meal tracking application. Users should be able to log foods they've ea
 
 * Add array of sample hard-coded Food objects and display list of data to user with ngFor
 
-* Add form/functionality to allow user to edit existing data when clicked
+* Add form/functionality to allow user to edit existing data when clicked using ngIf
 
 * Add form/functionality to allow user to add new data
 
