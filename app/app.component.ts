@@ -6,7 +6,17 @@ import { Component } from '@angular/core';
   <div class="container">
     <h1>Meal Tracker</h1><br>
 
-    <div *ngFor="let food of foods">
+    <label>Filter your food list by calories:</label>
+    <select (change)="onChange($event.target.value)">
+      <option value="allFood">All Food</option>
+      <option value="highCalorie">500 Cal or Above</option>
+      <option value="lowCalorie">Below 500 Cal</option>
+    </select><br>
+    <hr>
+
+    <h3>Food List:</h3><br>
+
+    <div *ngFor="let food of foods | calorieFilterPipe:calorieFilter">
       <h4 (click)="editFood(food)">{{food.name}}</h4>
       <p>Details: {{food.details}}</p>
       <p>{{food.calories}} calories</p><br>
@@ -52,6 +62,12 @@ export class AppComponent {
     new Food("turkey pesto panini", "More food from Starbucks because I need lunch fast!", 490),
     new Food("my dinner", "not sure yet...but since I have eaten 1230 calories already it needs to be a salad...", 500)
   ];
+
+  calorieFilter: string = "allFood";
+
+  onChange(optionFromMenu) {
+    this.calorieFilter = optionFromMenu;
+  }
 
   submitNewFoodForm(name: string, details: string, calories: number) {
     var newFoodToAdd: Food = new Food(name, details, calories);
