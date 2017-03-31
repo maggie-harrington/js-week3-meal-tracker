@@ -32,9 +32,9 @@ Create a meal tracking application. Users should be able to log foods they've ea
 
 * From command line, `cd Desktop`
 
-* `mkdir js-week3-meal-plan`
+* `mkdir js-week3-meal-tracker`
 
-* `cd js-week3-meal-plan`
+* `cd js-week3-meal-tracker`
 
 * Initialize git repository and add remote
 
