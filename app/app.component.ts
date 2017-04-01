@@ -7,14 +7,6 @@ import { Food } from './food.model';
   <div class="container">
     <h1>Meal Tracker</h1><br>
 
-    <label>Filter your food list by calories:</label>
-    <select (change)="onChange($event.target.value)">
-      <option value="allFood">All Food</option>
-      <option value="highCalorie">500 Cal or Above</option>
-      <option value="lowCalorie">Below 500 Cal</option>
-    </select><br>
-    <hr>
-
     <food-list [childFoodList]="masterFoodList" (clickSender)="editFood($event)"></food-list>
 
     <new-food (newFoodSender)="addFood($event)"></new-food>
@@ -31,12 +23,6 @@ export class AppComponent {
     new Food("turkey pesto panini", "More food from Starbucks because I need lunch fast!", 490),
     new Food("my dinner", "not sure yet...but since I have eaten 1230 calories already it needs to be a salad...", 500)
   ];
-
-  calorieFilter: string = "allFood";
-
-  onChange(optionFromMenu) {
-    this.calorieFilter = optionFromMenu;
-  }
 
   addFood(newFoodFromChild: Food) {
     this.masterFoodList.push(newFoodFromChild);
