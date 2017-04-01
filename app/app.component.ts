@@ -15,13 +15,7 @@ import { Food } from './food.model';
     </select><br>
     <hr>
 
-    <h3>Food List:</h3><br>
-
-    <div *ngFor="let food of foods | calorieFilterPipe:calorieFilter">
-      <h4 (click)="editFood(food)">{{food.name}}</h4>
-      <p>Details: {{food.details}}</p>
-      <p>{{food.calories}} calories</p><br>
-    </div>
+    <food-list [childFoodList]="masterFoodList" (clickSender)="editFood($event)"></food-list>
 
     <new-food (newFoodSender)="addFood($event)"></new-food>
 
@@ -31,7 +25,7 @@ import { Food } from './food.model';
 })
 
 export class AppComponent {
-  foods: Food[] = [
+  masterFoodList: Food[] = [
     new Food("venti hazelnut latte", "Starbucks breakfast", 320),
     new Food("blueberry scone", "Starbucks breakfast part 2, yikes that's 740 calories already!", 420),
     new Food("turkey pesto panini", "More food from Starbucks because I need lunch fast!", 490),
@@ -45,7 +39,7 @@ export class AppComponent {
   }
 
   addFood(newFoodFromChild: Food) {
-    this.foods.push(newFoodFromChild);
+    this.masterFoodList.push(newFoodFromChild);
   }
 
   selectedFood = null;
