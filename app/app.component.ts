@@ -25,20 +25,7 @@ import { Food } from './food.model';
 
     <new-food (newFoodSender)="addFood($event)"></new-food>
 
-    <div *ngIf="selectedFood">
-      <h3>Edit food entry: {{selectedFood.name}}</h3><br>
-
-      <label for="food-name">Enter food name:</label><br>
-      <input type="text" name="food-name" [(ngModel)]="selectedFood.name"><br><br>
-
-      <label for="food-details">Enter details:</label><br>
-      <textarea type="text" name="food-details" [(ngModel)]="selectedFood.details"></textarea><br><br>
-
-      <label for="food-calories">Enter calories (number only):</label><br>
-      <input type="number" name="food-calories" [(ngModel)]="selectedFood.calories"><br><br>
-
-      <button (click)="finishedEditing()">Done</button>
-    </div>
+    <edit-food [childSelectedFood]="selectedFood" (doneButtonClickedSender)="finishedEditing()"></edit-food>
   </div>
   `
 })
