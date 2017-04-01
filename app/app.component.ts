@@ -5,13 +5,22 @@ import { Food } from './food.model';
   selector: 'app-root',
   template: `
   <div class="container">
-    <h1>Meal Tracker</h1><br>
+    <header class="jumbotron">
+      <h1>Meal Tracker</h1><br>
+      <p>By <a href="https://github.com/maggie-harrington">Maggie Harrington</a></p>
+    </header>
 
-    <food-list [childFoodList]="masterFoodList" (clickSender)="editFood($event)"></food-list>
+    <div class="row">
+      <div class="col-xs-7">
+        <food-list [childFoodList]="masterFoodList" (clickSender)="editFood($event)"></food-list>
+      </div>
 
-    <new-food (newFoodSender)="addFood($event)"></new-food>
+      <div class="col-xs-5 well">
+        <new-food (newFoodSender)="addFood($event)"></new-food><br>
 
-    <edit-food [childSelectedFood]="selectedFood" (doneButtonClickedSender)="finishedEditing()"></edit-food>
+        <edit-food [childSelectedFood]="selectedFood" (doneButtonClickedSender)="finishedEditing()"></edit-food>
+      </div>
+    </div>
   </div>
   `
 })
